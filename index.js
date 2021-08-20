@@ -8,7 +8,7 @@ const { fetchMyIP, fetchCoordsByIP } = require('./iss');
 //   console.log("It worked. Returned IP:", ip);
 // });
 
-fetchCoordsByIP('75.156.173.187', (error, data) => {
-  console.log(error);
-  console.log(data);
-});
+// fetchCoordsByIP('75.156.173.19', (error, data) => {
+//   console.log(error);
+//   console.log(data);
+// });
