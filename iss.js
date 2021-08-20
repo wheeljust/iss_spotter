@@ -22,6 +22,16 @@ const fetchMyIP = (callback) => {
   });
 };
 
+/**
+ * Makes a single API request to retrieve the user's location based on IP address.
+ * Input:
+ *   - Users IP address
+ *   - A callback (to pass back an error or the IP string)
+ * Returns (via Callback):
+ *   - An error, if any (nullable)
+ *   - The LAT & LON coordinates of the user based on IP location
+ */
+
 const fetchCoordsByIP = (ip, callback) => {
   request(`https://freegeoip.app/json/${ip}`, (error, response, data) => {
     if (error) return callback(error, null);
