@@ -14,7 +14,7 @@ const fetchMyIP = (callback) => {
     if (error) return callback(error, null);
 
     if (response.statusCode !== 200) {
-      callback(Error(`Status Code ${response.statusCode} when fetching IP. Response: ${body}`), null);
+      callback(Error(`Status Code ${response.statusCode} when fetching IP: ${body}`), null);
       return;
     }
 
@@ -37,14 +37,13 @@ const fetchCoordsByIP = (ip, callback) => {
     if (error) return callback(error, null);
 
     if (response.statusCode !== 200) {
-      callback(Error(`Status Code ${response.statusCode} when fetching IP. Response: ${data}`), null);
+      callback(Error(`Status Code ${response.statusCode} when fetching coordinates from IP: ${data}`), null);
       return;
     }
 
-    const LAT = JSON.parse(data).latitude;
-    const LON = JSON.parse(data).longitude;
+    const { latitude, longitude } = JSON.parse(data);
 
-    callback(null,{ LAT, LON });
+    callback(null, { latitude, longitude });
   })
 };
 
